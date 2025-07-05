@@ -1,4 +1,3 @@
-
 import onlineStore from "../assets/projects/onlineStore.png";
 import coffee from "../assets/projects/coffee.png";
 import commerce from "../assets/projects/e-commerce.png";
@@ -22,39 +21,59 @@ export const EXPERIENCES = [
     description: `Developed and maintained responsive e-commerce components using React.js and Redux.
     Collaborated with the frontend team using Git and Figma for agile workflows.
     Contributed to UI design enhancements and improved component reusability.`,
-    technologies: ["Javascript", "React.js", "Redux Toolkit","React Router", "Tailwind CSS", "Git", "Figma", "clsx", "React Scroll"],
+    technologies: [
+      "Javascript",
+      "React.js",
+      "Redux Toolkit",
+      "React Router",
+      "Tailwind CSS",
+      "Git",
+      "Figma",
+      "clsx",
+      "React Scroll",
+    ],
   },
-
 ];
 
 export const PROJECTS = [
   {
     title: "Online Shopping Platform",
     image: onlineStore,
-    description:
-      `A multi-page store layout using React.js and Tailwind CSS with smooth navigation and reusable
+    description: `A multi-page store layout using React.js and Tailwind CSS with smooth navigation and reusable
        components. It includes a responsive UI, product detail pages, and a mock checkout flow.`,
-    technologies: ["Tailwind CSS", "React", "Redux", "React Router", "clsx", "React Scroll"],
-    link: "https://online-store-zeta-ten.vercel.app/",
-
+    technologies: [
+      "Tailwind CSS",
+      "React",
+      "Redux",
+      "React Router",
+      "clsx",
+      "React Scroll",
+    ],
+    link: "https://online-store-navy-nine.vercel.app/",
   },
   {
     title: "Coffee Shop Website",
     image: coffee,
-    description:
-      `A modern and visually appealing website for a fictional coffee shop. Designed using React and Bootstrap with smooth scroll navigation, image galleries, and animated menus.
+    description: `A modern and visually appealing website for a fictional coffee shop. Designed using React and Bootstrap with smooth scroll navigation, image galleries, and animated menus.
        The UI is responsive and optimized for mobile devices.`,
-    technologies: [ "Tailwind CSS", "React", "Redux", "React Router", "Framer Motion", "clsx", "React Scroll"],
+    technologies: [
+      "Tailwind CSS",
+      "React",
+      "Redux",
+      "React Router",
+      "Framer Motion",
+      "clsx",
+      "React Scroll",
+    ],
     link: "https://coffee-store-one-phi.vercel.app/",
   },
   {
     title: "E-Commerce React App",
     image: commerce,
-    description:
-      `A fully responsive online store built using React.js and Tailwind CSS. Features include product 
+    description: `A fully responsive online store built using React.js and Tailwind CSS. Features include product 
       listing, filtering by category, detailed product view, and cart functionality.
        Routing is handled with React Router, and product data is dynamically fetched from a mock API.`,
-    technologies: ["HTML5", "Tailwind CSS", "React", "Redux", "React Router",],
+    technologies: ["HTML5", "Tailwind CSS", "React", "Redux", "React Router"],
     link: "https://e-commerce-one-beta-90.vercel.app/",
   },
   {
@@ -62,14 +81,19 @@ export const PROJECTS = [
     image: TMDB,
     description: `A React-based movie search app powered by the TMDB (The Movie Database) API. Users can browse popular films, search by title, view movie details, and navigate between pages using dynamic routing.
      Includes loading states and error handling for better UX.`,
-    technologies: ["React", "TMDB API", "Axios", "React Router", "Tailwind CSS", ],
+    technologies: [
+      "React",
+      "TMDB API",
+      "Axios",
+      "React Router",
+      "Tailwind CSS",
+    ],
     link: "https://github.com/Z-Coding-dot/TMDB-Movie",
   },
   {
     title: "Weather App",
     image: weather,
-    description:
-      `Real-time weather forecast app that allows users to search any city and see current weather conditions. 
+    description: `Real-time weather forecast app that allows users to search any city and see current weather conditions. 
       Built using React and OpenWeatherMap API, with React Hooks for state and lifecycle management. Includes mobile-responsive design and dynamic background changes based on weather.`,
     technologies: ["HTML5", "Tailwind CSS", "React ", "React Router"],
     link: "https://z-coding-dot.github.io/Weather-App/",
@@ -80,7 +104,6 @@ export const PROJECTS = [
     description: `An interactive quiz app with multiple-choice questions and score tracking. Built using React with state management to handle question flow, user input, and final results. 
     Includes progress bar, animations, and responsive design.`,
     technologies: ["React", "Tailwind CSS", "HTML5"],
-
   },
 ];
 
