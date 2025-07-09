@@ -9,7 +9,7 @@ A modern, responsive portfolio website built with React. Showcase your projects,
 - Easy to customize and extend
 
 ## Screenshots
-![Homepage](./src/assets/image.jpg)
+![Homepage](./src/assets/projects/image.png)
 
 ## Demo
 https://parsa-professional-portfolio.vercel.app/ 
