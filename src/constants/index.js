@@ -1,3 +1,4 @@
+import dashboard from "../assets/projects/dashboard.png";
 import onlineStore from "../assets/projects/onlineStore.png";
 import coffee from "../assets/projects/coffee.png";
 import commerce from "../assets/projects/e-commerce.png";
@@ -36,6 +37,14 @@ export const EXPERIENCES = [
 ];
 
 export const PROJECTS = [
+  {
+    title: "Admin Dashboard",
+    image: dashboard,
+    description: `A modern, responsive React dashboard application built with Vite,
+     featuring a beautiful UI with dark/light mode toggle and comprehensive analytics components.`,
+    technologies: ["Tailwind CSS", "React", "Recharts", "Lucide"],
+    link: "https://dashboard-topaz-two-86.vercel.app/",
+  },
   {
     title: "Online Shopping Platform",
     image: onlineStore,
