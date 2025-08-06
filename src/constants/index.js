@@ -1,3 +1,4 @@
+import chatbot from '../assets/projects/react-chatbot.png';
 import dashboard from "../assets/projects/dashboard.png";
 import onlineStore from "../assets/projects/onlineStore.png";
 import coffee from "../assets/projects/coffee.png";
@@ -37,6 +38,14 @@ export const EXPERIENCES = [
 ];
 
 export const PROJECTS = [
+  {
+    title: "Pars Chat - AI-Powered Chatbot",
+    image: chatbot,
+    description:` A modern, responsive AI chatbot built with React and Vite, powered by Google's Gemini AI.
+     Experience seamless conversations with an intelligent AI assistant in a beautiful, dark/light mode interface.`,
+    technologies: ["Google Gemini AI", "Tailwind CSS", "React", "Recharts", "Lucide React"],
+    link: "https://react-chatbot-eight-omega.vercel.app/",
+  },
   {
     title: "Admin Dashboard",
     image: dashboard,
