@@ -1,20 +1,20 @@
-import React from 'react'
-import heroImage from '../assets/hero.jpg';
+// import heroImage from '../assets/hero.jpg';
+import heroImage from '../assets/photo.jpg';
+
 import { HERO_CONTENT } from '../constants/index.js';
-import {motion} from 'framer-motion';
-
-
+import { motion } from 'motion/react';
 const Hero = () => {
   return (
     <div className="max-lg:px-4 px-30 py-20 max-lg:py-20">
       <div className="flex flex-wrap lg:flex-row-reverse items-center">
-        <div className="w-full lg:w-1/2 ">
+        <div className="w-full lg:w-1/2">
           <motion.img 
            initial={{opacity: 0, y: 200}}
            animate={{opacity: 1, y: 0}}
            transition={{duration: 1, ease: 'easeInOut'}}
            src={heroImage} alt="Ziaulhaq Parsa Karimi"
-           className="rounded-3xl border border-stone-900 transition-all duration-500 ease-in-out hover:ring-2 hover:ring-blue-300 hover:border-stone-300 active:ring-4 active:ring-stone-500 active:border-stone-500 cursor-pointer" />
+           className="rounded-3xl border border-stone-900 transition-all duration-500 ease-in-out hover:ring-2 sm:h-160 w-full object-center object-cover
+            hover:ring-blue-300 hover:border-stone-300 active:ring-4 active:ring-stone-500 active:border-stone-500 cursor-pointer" />
         </div>
         <div className="w-full lg:w-1/2 flex flex-col lg:items-start mb-10">
         <motion.h1

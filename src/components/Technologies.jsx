@@ -1,8 +1,8 @@
 import React from 'react'
-import { FaBootstrap, FaHtml5, FaJs, FaMdb, FaNodeJs, FaReact,  } from 'react-icons/fa'
-import {motion} from 'framer-motion';
+import { FaBootstrap, FaHtml5, FaJs, FaReact,  } from 'react-icons/fa'
+import { motion } from "motion/react"
 import { RiTailwindCssFill } from "react-icons/ri";
-import { SiRedux } from "react-icons/si";
+import { SiCss3, SiCssmodules, SiLucid, SiRedux, SiSass, SiTypescript } from "react-icons/si";
 import { SiReactrouter } from "react-icons/si";
 import { TbBrandFramerMotion } from "react-icons/tb";
 
@@ -34,7 +34,7 @@ const Technologies = () => {
          className="p-4"><FaJs className='text-7xl text-yellow-300'/></motion.div>
         <motion.div 
           initial={{opacity: 5, y: 10}}
-          animate={{opacity: 5, y: 10}}
+          animate={{opacity: 5, y: -10}}
           transition={{duration: 1.5, ease: 'linear', repeat:Infinity, repeatType:'reverse'}}
          className="p-4"><RiTailwindCssFill className='text-7xl text-cyan-500'/></motion.div>
         <motion.div 
@@ -56,7 +56,24 @@ const Technologies = () => {
           initial={{opacity: 5, y: -10}}
           animate={{opacity: 5, y: 10}}
           transition={{duration: 1.5, ease: 'linear', repeat:Infinity, repeatType:'reverse'}}
-         className="p-4"><TbBrandFramerMotion  className='text-7xl text-pink-600'/></motion.div>
+         className="p-4"><TbBrandFramerMotion  className='text-7xl text-pink-600'/>
+         </motion.div>
+        <motion.div 
+          initial={{opacity: 5, y: 10}}
+          animate={{opacity: 5, y: -10}}
+          transition={{duration: 1.5, ease: 'linear', repeat:Infinity, repeatType:'reverse'}}
+         className="p-4"><SiTypescript  className='text-7xl text-blue-700'/>
+         </motion.div>
+        <motion.div 
+          initial={{opacity: 5, y: -10}}
+          animate={{opacity: 5, y: 10}}
+          transition={{duration: 1.5, ease: 'linear', repeat:Infinity, repeatType:'reverse'}}
+         className="p-4"><SiSass  className='text-7xl text-pink-700'/>
+         </motion.div>
+
+
+
+
       </div>
     </motion.div>
   )

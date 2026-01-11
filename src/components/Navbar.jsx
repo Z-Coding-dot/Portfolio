@@ -1,6 +1,5 @@
-import React from 'react'
 import logo from '../assets/logo.png'
-import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa'
+import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, } from 'react-icons/fa'
 
 const Navbar = () => {
   return (
@@ -12,20 +11,20 @@ const Navbar = () => {
         <div className="flex items-center justify-center m-8 gap-4 text-2xl">
           <a
             href="https://www.linkedin.com/in/ziaulhaq-parsa-karimi-8a6149373?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B9y6oVBtLQKC6xSkF1BvR4g%3D%3D"
-            aria-label="LinkedIn">
+            aria-label="LinkedIn" rel="noreferrer" target="_blank">
             <FaLinkedin />
           </a>
-          <a href="https://github.com/Z-Coding-dot" aria-label="GitHub">
+          <a href="https://github.com/Z-Coding-dot" aria-label="GitHub" rel="noreferrer" target="_blank">
             <FaGithub />
           </a>
           <a
-            href="https://www.instagram.com/princeparsa53?igsh=eW4zZ2d6b3l3bjZq"
-            aria-label="Instagram">
+            href="https://www.instagram.com/parsa_official?igsh=MTB1NXE1cTN3YWR1OQ=="
+            aria-label="Instagram" rel='noreferrer' target='_blank'>
             <FaInstagram />
           </a>
           <a
-            href="https://www.facebook.com/ziualhaqparsa.ziyalhaq?mibextid=ZbWKwL"
-            aria-label="facebook"
+            href="https://www.facebook.com/share/14aiDgociRq/"
+            aria-label="facebook" rel="noreferrer" target="_blank"
           >
             <FaFacebook />
           </a>

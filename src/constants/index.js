@@ -6,6 +6,14 @@ import commerce from "../assets/projects/e-commerce.png";
 import TMDB from "../assets/projects/TMDB.png";
 import weather from "../assets/projects/weather.png";
 import quiz from "../assets/projects/quiz.png";
+import mintLight from "../assets/projects/mintLight.png";
+import dreamWay from "../assets/projects/dreamWay.png";
+import careeron from "../assets/projects/careeron.png";
+import loveLife from "../assets/projects/loveLife.png";
+import floraVera from "../assets/projects/floraVera.png";
+
+
+
 
 export const HERO_CONTENT = `I'm a passionate and detail-oriented Computer Science student
  at Astana IT University, specializing in Frontend Web Development using modern technologies like React.js, Tailwind CSS, and JavaScript (ES6+).
@@ -17,27 +25,59 @@ export const ABOUT_TEXT = `I am a dedicated and versatile full stack developer w
 
 export const EXPERIENCES = [
   {
+    year: "August 2025 - Present",
+    role: "Frontend Developer Intern",
+    company: "sanaUp",
+    description: `Built scalable UI features and maintained modern web interfaces with React, TypeScript, and utility-first CSS. Collaborated on cross-functional development cycles using Git version control and Figma-based design.`,
+    technologies: [ "TypeScript", "React.js", "Redux Toolkit", "React Router", "Tailwind CSS", "Git", "Figma", "clsx", "React Scroll", ],
+  },
+  {
     year: "June 2025 - July 2025",
     role: "Frontend Developer Intern",
     company: "iQadam Systems LLP",
     description: `Developed and maintained responsive e-commerce components using React.js and Redux.
     Collaborated with the frontend team using Git and Figma for agile workflows.
     Contributed to UI design enhancements and improved component reusability.`,
-    technologies: [
-      "Javascript",
-      "React.js",
-      "Redux Toolkit",
-      "React Router",
-      "Tailwind CSS",
-      "Git",
-      "Figma",
-      "clsx",
-      "React Scroll",
-    ],
+    technologies: [ "Javascript", "React.js", "Redux Toolkit", "React Router", "Tailwind CSS", "Git", "Figma", "clsx", "React Scroll", ],
   },
 ];
 
 export const PROJECTS = [
+  {
+    title: "FloraVera",
+    image: floraVera,
+    description:"A bouquet of roses will say it all for you! Leave a request and give your loved ones not just flowers, but real emotions!",
+    technologies: ["Tailwind CSS", "React", "Lucide React", "React Router", "Framer Motion", "Vite"],
+    link: "https://floravera.offiwebsite.com/",
+  },
+  {
+    title: "LoveLife",
+    image: loveLife,
+    description:"A white smile with LoveLife Restoration with digital planning, precise color matching. Comfort at every stage",
+    technologies: ["Tailwind CSS", "React", "Lucide React", "React Router", "Framer Motion", "Vite"],
+    link: "https://lovelife.offiwebsite.com/",
+  },
+  {
+    title: "Careeron",
+    image: careeron,
+    description:"CAREERON — Education and Career Abroad Access study, internship, and work opportunities abroad with a clear structure and transparent process",
+    technologies: ["Tailwind CSS", "React", "Lucide React", "React Router", "Framer Motion", "Vite"],
+    link: "https://careeron.offiwebsite.com/",
+  },
+  {
+    title: "DreamWay",
+    image: dreamWay,
+    description:"Hot tours at last minute prices! Explore exclusive deals on flights and hotels with DreamWay. Your adventure starts here with unbeatable offers and unforgettable experiences.",
+    technologies: ["Tailwind CSS", "React", "Lucide React", "React Router", "Framer Motion", "Vite"],
+    link: "https://dreamway.offiwebsite.com/",
+  },
+  {
+    title: "MintLight",
+    image: mintLight,
+    description:` 6 months with no overPayments Convenient installment plan for regular customers with flexible payment options.`,
+    technologies: ["Tailwind CSS", "React", "Lucide React", "React Router", "Framer Motion", "Vite"],
+    link: "https://mintlight.offiwebsite.com/",
+  },
   {
     title: "Pars Chat - AI-Powered Chatbot",
     image: chatbot,
