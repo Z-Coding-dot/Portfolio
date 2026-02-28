@@ -1,4 +1,4 @@
-import chatbot from '../assets/projects/react-chatbot.png';
+import chatbot from "../assets/projects/react-chatbot.png";
 import dashboard from "../assets/projects/dashboard.png";
 import onlineStore from "../assets/projects/onlineStore.png";
 import coffee from "../assets/projects/coffee.png";
@@ -11,9 +11,8 @@ import dreamWay from "../assets/projects/dreamWay.png";
 import careeron from "../assets/projects/careeron.png";
 import loveLife from "../assets/projects/loveLife.png";
 import floraVera from "../assets/projects/floraVera.png";
-
-
-
+import aveelon from "../assets/projects/aveelon.png";
+import skillBridge from "../assets/projects/skillBridge.png";
 
 export const HERO_CONTENT = `I'm a passionate and detail-oriented Computer Science student
  at Astana IT University, specializing in Frontend Web Development using modern technologies like React.js, Tailwind CSS, and JavaScript (ES6+).
@@ -25,11 +24,21 @@ export const ABOUT_TEXT = `I am a dedicated and versatile full stack developer w
 
 export const EXPERIENCES = [
   {
-    year: "August 2025 - Present",
+    year: "August 2025 - February 2026",
     role: "Frontend Developer Intern",
     company: "sanaUp",
     description: `Built scalable UI features and maintained modern web interfaces with React, TypeScript, and utility-first CSS. Collaborated on cross-functional development cycles using Git version control and Figma-based design.`,
-    technologies: [ "TypeScript", "React.js", "Redux Toolkit", "React Router", "Tailwind CSS", "Git", "Figma", "clsx", "React Scroll", ],
+    technologies: [
+      "TypeScript",
+      "React.js",
+      "Redux Toolkit",
+      "React Router",
+      "Tailwind CSS",
+      "Git",
+      "Figma",
+      "clsx",
+      "React Scroll",
+    ],
   },
   {
     year: "June 2025 - July 2025",
@@ -38,52 +47,137 @@ export const EXPERIENCES = [
     description: `Developed and maintained responsive e-commerce components using React.js and Redux.
     Collaborated with the frontend team using Git and Figma for agile workflows.
     Contributed to UI design enhancements and improved component reusability.`,
-    technologies: [ "Javascript", "React.js", "Redux Toolkit", "React Router", "Tailwind CSS", "Git", "Figma", "clsx", "React Scroll", ],
+    technologies: [
+      "Javascript",
+      "React.js",
+      "Redux Toolkit",
+      "React Router",
+      "Tailwind CSS",
+      "Git",
+      "Figma",
+      "clsx",
+      "React Scroll",
+    ],
   },
 ];
 
 export const PROJECTS = [
   {
+    title: "SkillBridge",
+    image: skillBridge,
+    description:
+      "The marketplace where students find gigs, internships, and tutoring opportunities. Build experience, earn money, and grow your network.",
+    technologies: [
+      "Tailwind CSS",
+      "React",
+      "Lucide React",
+      "React Router",
+      "Framer Motion",
+      "Vite",
+    ],
+    link: "https://github.com/Z-Coding-dot/Skill_Bridge",
+  },
+  {
+    title: "aveelon",
+    image: aveelon,
+    description:
+      "A modern, responsive e-commerce website built with React and Tailwind CSS. It features a sleek UI with dark/light mode toggle, product listings, and a seamless shopping experience.",
+    technologies: [
+      "Tailwind CSS",
+      "React",
+      "Lucide React",
+      "React Router",
+      "Framer Motion",
+      "Vite",
+    ],
+    link: "https://app.aveelon.com/",
+  },
+  {
     title: "FloraVera",
     image: floraVera,
-    description:"A bouquet of roses will say it all for you! Leave a request and give your loved ones not just flowers, but real emotions!",
-    technologies: ["Tailwind CSS", "React", "Lucide React", "React Router", "Framer Motion", "Vite"],
+    description:
+      "A bouquet of roses will say it all for you! Leave a request and give your loved ones not just flowers, but real emotions!",
+    technologies: [
+      "Tailwind CSS",
+      "React",
+      "Lucide React",
+      "React Router",
+      "Framer Motion",
+      "Vite",
+    ],
     link: "https://floravera.offiwebsite.com/",
   },
   {
     title: "LoveLife",
     image: loveLife,
-    description:"A white smile with LoveLife Restoration with digital planning, precise color matching. Comfort at every stage",
-    technologies: ["Tailwind CSS", "React", "Lucide React", "React Router", "Framer Motion", "Vite"],
+    description:
+      "A white smile with LoveLife Restoration with digital planning, precise color matching. Comfort at every stage",
+    technologies: [
+      "Tailwind CSS",
+      "React",
+      "Lucide React",
+      "React Router",
+      "Framer Motion",
+      "Vite",
+    ],
     link: "https://lovelife.offiwebsite.com/",
   },
   {
     title: "Careeron",
     image: careeron,
-    description:"CAREERON — Education and Career Abroad Access study, internship, and work opportunities abroad with a clear structure and transparent process",
-    technologies: ["Tailwind CSS", "React", "Lucide React", "React Router", "Framer Motion", "Vite"],
+    description:
+      "CAREERON — Education and Career Abroad Access study, internship, and work opportunities abroad with a clear structure and transparent process",
+    technologies: [
+      "Tailwind CSS",
+      "React",
+      "Lucide React",
+      "React Router",
+      "Framer Motion",
+      "Vite",
+    ],
     link: "https://careeron.offiwebsite.com/",
   },
   {
     title: "DreamWay",
     image: dreamWay,
-    description:"Hot tours at last minute prices! Explore exclusive deals on flights and hotels with DreamWay. Your adventure starts here with unbeatable offers and unforgettable experiences.",
-    technologies: ["Tailwind CSS", "React", "Lucide React", "React Router", "Framer Motion", "Vite"],
+    description:
+      "Hot tours at last minute prices! Explore exclusive deals on flights and hotels with DreamWay. Your adventure starts here with unbeatable offers and unforgettable experiences.",
+    technologies: [
+      "Tailwind CSS",
+      "React",
+      "Lucide React",
+      "React Router",
+      "Framer Motion",
+      "Vite",
+    ],
     link: "https://dreamway.offiwebsite.com/",
   },
   {
     title: "MintLight",
     image: mintLight,
-    description:` 6 months with no overPayments Convenient installment plan for regular customers with flexible payment options.`,
-    technologies: ["Tailwind CSS", "React", "Lucide React", "React Router", "Framer Motion", "Vite"],
+    description: ` 6 months with no overPayments Convenient installment plan for regular customers with flexible payment options.`,
+    technologies: [
+      "Tailwind CSS",
+      "React",
+      "Lucide React",
+      "React Router",
+      "Framer Motion",
+      "Vite",
+    ],
     link: "https://mintlight.offiwebsite.com/",
   },
   {
     title: "Pars Chat - AI-Powered Chatbot",
     image: chatbot,
-    description:` A modern, responsive AI chatbot built with React and Vite, powered by Google's Gemini AI.
+    description: ` A modern, responsive AI chatbot built with React and Vite, powered by Google's Gemini AI.
      Experience seamless conversations with an intelligent AI assistant in a beautiful, dark/light mode interface.`,
-    technologies: ["Google Gemini AI", "Tailwind CSS", "React", "Recharts", "Lucide React"],
+    technologies: [
+      "Google Gemini AI",
+      "Tailwind CSS",
+      "React",
+      "Recharts",
+      "Lucide React",
+    ],
     link: "https://react-chatbot-eight-omega.vercel.app/",
   },
   {
