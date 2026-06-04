@@ -51,7 +51,9 @@ const Projects = () => {
           initial={{ opacity: 0, y: 200 }}
           transition={{ duration: 1, ease: 'easeInOut' }}
           onClick={() => setShowAll(!showAll)}
-          className="mt-8 mx-auto block bg-stone-800 text-stone-200 px-6 py-3 rounded-lg font-medium hover:bg-stone-700 transition-colors">
+          className="bg-gradient-to-r from-stone-300 to-stone-600
+           text-stone-900 hover:bg-gradient-to-l hover:from-stone-600 hover:to-stone-300 font-bold py-2 
+           px-4 rounded-full transition duration-500 ease-in-out mx-auto block">
           {showAll ? "Show Less" : "Show More"}
         </motion.button>
       )}

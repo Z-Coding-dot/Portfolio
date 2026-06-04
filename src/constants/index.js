@@ -14,11 +14,13 @@ import floraVera from "../assets/projects/floraVera.png";
 import aveelon from "../assets/projects/aveelon.png";
 import skillBridge from "../assets/projects/skillBridge.png";
 
-export const HERO_CONTENT = `I'm a passionate and detail-oriented Computer Science student
- at Astana IT University, specializing in Frontend Web Development using modern technologies like React.js, Tailwind CSS, and JavaScript (ES6+).
-I enjoy building responsive, user-friendly web interfaces and bringing creative UI ideas to life with tools like Framer Motion, clsx, and React Scroll. During my recent internship at iQadam Systems LLP, 
-I worked on real-world e-commerce features, collaborating with a team to deliver clean,
- scalable React components.`;
+export const HERO_CONTENT = `I'm a passionate and detail-oriented recent graduated student from Astana IT University in Computer Science,
+ specializing in Frontend Web Development using modern technologies like React.js, Tailwind CSS, TypeScript, and JavaScript (ES6+).
+I enjoy building responsive, user-friendly web interfaces and bringing creative UI ideas to life with tools like Framer Motion,
+ clsx, and React Scroll. During my recent internship at SanaUp, I contributed to building scalable UI features and maintaining 
+ modern web interfaces with React, TypeScript, and utility-first CSS. I collaborated on cross-functional development 
+ cycles using Git version control and Figma-based design. In my previous internship at iQadam Systems LLP.
+`;
 
 export const ABOUT_TEXT = `I am a dedicated and versatile full stack developer with a passion for creating efficient and user-friendly web applications. With 5 years of professional experience, I have worked with a variety of technologies, including React, Next.js, Node.js, MySQL, PostgreSQL, and MongoDB. My journey in web development began with a deep curiosity for how things work, and it has evolved into a career where I continuously strive to learn and adapt to new challenges. I thrive in collaborative environments and enjoy solving complex problems to deliver high-quality solutions. Outside of coding, I enjoy staying active, exploring new technologies, and contributing to open-source projects.`;
 
@@ -68,29 +70,31 @@ export const PROJECTS = [
     description:
       "The marketplace where students find gigs, internships, and tutoring opportunities. Build experience, earn money, and grow your network.",
     technologies: [
+      "TypeScript",
+      "React.js",
       "Tailwind CSS",
-      "React",
       "Lucide React",
       "React Router",
       "Framer Motion",
       "Vite",
     ],
-    link: "https://github.com/Z-Coding-dot/Skill_Bridge",
+    link: "https://skilbridge.onrender.com/",
   },
   {
-    title: "aveelon",
+    title: "Aveelon",
     image: aveelon,
     description:
       "A modern, responsive e-commerce website built with React and Tailwind CSS. It features a sleek UI with dark/light mode toggle, product listings, and a seamless shopping experience.",
     technologies: [
+      "TypeScript",
+      "React.js",
       "Tailwind CSS",
-      "React",
       "Lucide React",
       "React Router",
       "Framer Motion",
       "Vite",
     ],
-    link: "https://app.aveelon.com/",
+    link: "https://aveelon.com/",
   },
   {
     title: "FloraVera",
