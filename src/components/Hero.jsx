@@ -5,7 +5,7 @@ import { HERO_CONTENT } from '../constants/index.js';
 import { motion } from 'motion/react';
 const Hero = () => {
   return (
-    <div className="max-lg:px-4 px-30 py-20 max-lg:py-20">
+    <div className="py-20 max-lg:py-20 sm:px-10">
       <div className="flex flex-wrap lg:flex-row-reverse items-center">
         <div className="w-full lg:w-1/2">
           <motion.img
@@ -21,7 +21,7 @@ const Hero = () => {
             initial={{ opacity: 0, x: 200 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.6, ease: 'easeInOut' }}
-            className="text-center lg:text-start text-3xl sm:text-4xl md:text-5xl font-bold my-4 tracking-tighter">Ziaulhaq Parsa Karimi</motion.h1>
+            className="text-center lg:text-start text-2xl sm:text-3xl md:text-4xl font-bold my-4 tracking-tighter">Ziaulhaq Parsa Karimi</motion.h1>
           <motion.span
             initial={{ opacity: 0, x: -300 }}
             animate={{ opacity: 1, x: 0 }}

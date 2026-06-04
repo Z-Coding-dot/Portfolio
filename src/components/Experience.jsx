@@ -7,7 +7,7 @@ const Experience = () => {
         <h2 className="text-2xl sm:text-3xl md:text-4xl text-center my-20 font-bold">Experience</h2>
         <div>
         {EXPERIENCES.map((exp, index) => (
-            <div key={index} className="mb-18 flex flex-wrap lg:justify-center gap-8">
+            <div key={index} className="mb-10 lg:mb-18 flex flex-wrap lg:justify-center gap-4 lg:gap-8">
                 <div className="w-full lg:w-1/4">
                     <motion.p 
                     initial={{opacity: 0, x: -200}}
