@@ -26,7 +26,8 @@ const Experience = () => {
                    
                     <div className='flex flex-wrap'>
                     {exp.technologies.map((te, index) =>(
-                    <span key={index} className="text-sm sm:text-base font-medium bg-stone-800 text-stone-300 mr-2 mt-4 py-2 px-4 rounded ">{te}</span>
+                    <span key={index} className="text-xs sm:text-base font-medium bg-stone-800
+                     text-stone-300 mr-2 mt-4 py-2 px-4 rounded ">{te}</span>
                         ))}
                     </div>
                 </motion.div>

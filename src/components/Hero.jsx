@@ -31,7 +31,7 @@ const Hero = () => {
             initial={{ opacity: 0, x: -400 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 2.9, ease: 'easeInOut' }}
-            className="text-base sm:text-lg max-w-lg text-stone-400 my-2 py-5 leading-relaxed">{HERO_CONTENT}</motion.p>
+            className="text-sm sm:text-lg max-w-lg text-stone-400 my-2 py-5 leading-relaxed">{HERO_CONTENT}</motion.p>
           <motion.a
             initial={{ opacity: 0, y: 200 }}
             animate={{ opacity: 1, y: 0 }}

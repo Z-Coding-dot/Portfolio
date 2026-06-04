@@ -6,9 +6,9 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 w-full z-50 h-14 bg-transparent backdrop-blur-2xl flex items-center justify-between py-4">
       <div className="flex items-center justify-between w-full">
         <a href="/" aria-label="Home">
-          <img src={logo} className="mx-4 w-50" />
+          <img src={logo} className="mx-2 sm:mx-4 w-30 sm:w-50" />
         </a>
-        <div className="flex items-center justify-center m-8 gap-4 text-2xl">
+        <div className="flex items-center justify-center m-4 sm:m-8 gap-2 sm:gap-4 sm:text-2xl">
           <a
             href="https://www.linkedin.com/in/ziaulhaq-parsa-karimi-8a6149373?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B9y6oVBtLQKC6xSkF1BvR4g%3D%3D"
             aria-label="LinkedIn" rel="noreferrer" target="_blank">

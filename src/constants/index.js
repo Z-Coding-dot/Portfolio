@@ -13,6 +13,8 @@ import loveLife from "../assets/projects/loveLife.png";
 import floraVera from "../assets/projects/floraVera.png";
 import aveelon from "../assets/projects/aveelon.png";
 import skillBridge from "../assets/projects/skillBridge.png";
+import lumoCasa from "../assets/projects/lumoCasa.png";
+import lunaRosa from "../assets/projects/lunaRosa.png";
 
 export const HERO_CONTENT = `I'm a passionate and detail-oriented recent graduated student from Astana IT University in Computer Science,
  specializing in Frontend Web Development using modern technologies like React.js, Tailwind CSS, TypeScript, and JavaScript (ES6+).
@@ -26,9 +28,18 @@ export const ABOUT_TEXT = `I am a dedicated and versatile full stack developer w
 
 export const EXPERIENCES = [
   {
+    year: "March 2026 - May 2026",
+    role: "Scientific Research Intern",
+    company: "Astana IT University",
+    description: `Conducted research on optimizing frontend performance and user experience in web applications. 
+    Analyzed and implemented best practices for React.js development, including code splitting, lazy loading, and efficient state management.
+    Collaborated with a team of researchers to publish findings in a peer-reviewed journal and presented results at a university symposium.`,
+    technologies: ["Python", "Pandas", "Numpy", "Scikit-learn,", "Matplotlib", "Performance Optimization"],
+  },
+  {
     year: "August 2025 - February 2026",
-    role: "Frontend Developer Intern",
-    company: "sanaUp",
+    role: "Frontend Developer",
+    company: "SanaUp",
     description: `Built scalable UI features and maintained modern web interfaces with React, TypeScript, and utility-first CSS. Collaborated on cross-functional development cycles using Git version control and Figma-based design.`,
     technologies: [
       "TypeScript",
@@ -97,6 +108,20 @@ export const PROJECTS = [
     link: "https://aveelon.com/",
   },
   {
+    title: "LumoCasa",
+    image: lumoCasa,
+    description:"LumoCasa is a professional home services company. Since 2019, we have been bringing together key areas related to home setup and maintenance: interior design, cleaning, renovation, and construction.",
+    technologies: ["TypeScript", "React.js", "Tailwind CSS", "Lucide React", "React Router", "Framer Motion", "Vite"],
+    link: "https://aveelon.com/lumocasa?tab=about"
+  },
+  {
+    title: "LunaRosa",
+    image: lunaRosa,
+    description:"Since 2017, LunaRosa has united a restaurant, coffee shop, fast food, and healthy eating format into a single gastronomic system. Guests can visit in person and enjoy the atmosphere of the space, or place an order online in a convenient format. We create not just dining venues, but a comfortable environment with a thoughtfully crafted menu and consistently high service quality.",
+    technologies: ["TypeScript", "React.js", "Tailwind CSS", "Lucide React", "React Router", "Framer Motion", "Vite"],
+    link: "https://aveelon.com/lunarosa?tab=about"
+  },
+  {
     title: "FloraVera",
     image: floraVera,
     description:
@@ -109,7 +134,8 @@ export const PROJECTS = [
       "Framer Motion",
       "Vite",
     ],
-    link: "https://floravera.offiwebsite.com/",
+    // link: "https://floravera.offiwebsite.com/",
+    link: "https://aveelon.com/floravera",
   },
   {
     title: "LoveLife",
@@ -124,7 +150,8 @@ export const PROJECTS = [
       "Framer Motion",
       "Vite",
     ],
-    link: "https://lovelife.offiwebsite.com/",
+    // link: "https://lovelife.offiwebsite.com/",
+    link: "https://aveelon.com/lovelife",
   },
   {
     title: "Careeron",
@@ -139,7 +166,8 @@ export const PROJECTS = [
       "Framer Motion",
       "Vite",
     ],
-    link: "https://careeron.offiwebsite.com/",
+    // link: "https://careeron.offiwebsite.com/",
+    link: "https://aveelon.com/careeron",
   },
   {
     title: "DreamWay",
