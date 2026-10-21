@@ -1,64 +1,162 @@
-import { useState } from 'react';
+import { useId, useState } from 'react';
 import { PROJECTS } from '../constants/index.js';
-import { motion } from 'motion/react';
+import { motion, useReducedMotion } from 'motion/react';
+import { FiArrowUpRight, FiChevronDown, FiInfo, FiX } from 'react-icons/fi';
+import { getScrollReveal } from '../utils/scrollReveal';
+import './Projects.css';
+
 const Projects = () => {
   const [showAll, setShowAll] = useState(false);
-  const toggleShowAll = showAll ? PROJECTS : PROJECTS.slice(0, 5);
+  const [expandedProject, setExpandedProject] = useState(null);
+  const detailsId = useId();
+  const reduceMotion = useReducedMotion();
+  const visibleProjects = showAll ? PROJECTS : PROJECTS.slice(0, 6);
 
   return (
-    <div className='p-4'>
-      <motion.h2
-        initial={{ opacity: 0, y: 200 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: 'easeInOut' }}
-        className="my-20 text-2xl sm:text-3xl md:text-4xl text-center font-bold">Projects</motion.h2>
-      {toggleShowAll.map((project, index) => (
-        <div key={index} className="mb-8 flex flex-wrap lg:justify-between items-center gap-6 sm:mb-14 sm:mx-28">
-          <div className="w-full lg:w-1/3">
-            <a href={project.link} target='_blank' rel="noopener noreferrer" className='cursor-pointer'>
-              <motion.img
-                whileInView={{ opacity: 1, y: 0 }}
-                whileHover={{ scale: 1.1 }}
-                initial={{ opacity: 0, y: 200 }}
-                transition={{ duration: 1, ease: 'easeInOut' }}
-                src={project.image} alt={project.title}
-                width={250}
-                height={250}
-                className="object-cover object-center w-full h-auto rounded max-lg:rounded-xl mb-7" /></a>
-          </div>
-          <motion.div
-            whileInView={{ opacity: 1, y: 0 }}
-            initial={{ opacity: 0, y: 200 }}
-            transition={{ duration: 1, ease: 'easeInOut' }}
-            className="w-full max-w-xl lg:w-3/4">
-            <a href={project.link} target='_blank' rel='noopener noreferrer' >
-              <h2 className="text-xl sm:text-2xl font-semibold mb-4 hover:underline hover:text-blue-500">{project.title}</h2></a>
-            <p className=" text-stone-500 text-sm sm:text-base mb-4">{project.description}</p>
-
-            <div className='flex flex-wrap items-center justify-start'>
-              {project.technologies.map((tech, index) => (
-                <span key={index}
-                  className='px-4 py-2  bg-gray-900 rounded mx-2 my-2 font-medium text-xs sm:text-base' >{tech}</span>
-              ))}
-            </div>
-          </motion.div>
+    <section id="projects" className="projects-section" aria-labelledby="projects-heading">
+      <motion.header
+        className="projects-header"
+        {...getScrollReveal(reduceMotion)}
+      >
+        <p className="projects-header__eyebrow">Selected work</p>
+        <div className="projects-header__title-row">
+          <h2 id="projects-heading" className="projects-header__title">Projects</h2>
+          <span className="projects-header__badge" aria-hidden="true">
+            {String(PROJECTS.length).padStart(2, '0')}
+          </span>
         </div>
-      ))}
-      {PROJECTS.length > 5 && (
-        <motion.button
-          whileHover={{ scale: 1.1 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          initial={{ opacity: 0, y: 200 }}
-          transition={{ duration: 1, ease: 'easeInOut' }}
-          onClick={() => setShowAll(!showAll)}
-          className="bg-gradient-to-r from-stone-300 to-stone-600
-           text-stone-900 hover:bg-gradient-to-l hover:from-stone-600 hover:to-stone-300 font-bold py-2 
-           px-4 rounded-full transition duration-500 ease-in-out mx-auto block">
-          {showAll ? "Show Less" : "Show More"}
-        </motion.button>
-      )}
-    </div>
-  )
-}
+        <p className="projects-header__description">
+          A selection of websites and applications I’ve built.
+        </p>
+        <span className="projects-header__divider" aria-hidden="true" />
+      </motion.header>
 
-export default Projects
+      <svg width="0" height="0" aria-hidden="true" className="project-card-shapes">
+        <defs>
+          <clipPath id="project-card-shape" clipPathUnits="objectBoundingBox">
+            <path d="M .08 0 H .92 Q 1 0 1 .08 V .72 Q 1 .80 .92 .80 H .85 Q .75 .80 .75 .90 Q .75 1 .67 1 H .08 Q 0 1 0 .92 V .08 Q 0 0 .08 0 Z" />
+          </clipPath>
+        </defs>
+      </svg>
+
+      <div id="projects-grid" className="projects-grid">
+        {visibleProjects.map((project, index) => {
+          const detailsOpen = expandedProject === project.title;
+          const projectDetailsId = `${detailsId}-details-${index}`;
+
+          return (
+            <motion.article
+              key={project.title}
+              {...getScrollReveal(reduceMotion, (index % 3) * 0.08)}
+              className="project-card"
+            >
+              <div
+                className="project-card__target"
+                role="group"
+                aria-label={project.title}
+                tabIndex={project.link ? undefined : 0}
+                data-expanded={detailsOpen}
+                onKeyDown={(event) => {
+                  if (event.key === 'Escape' && detailsOpen) {
+                    setExpandedProject(null);
+                    event.currentTarget.querySelector('.project-card__details-toggle')?.focus();
+                  }
+                }}
+              >
+                {project.link && (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-card__link"
+                    aria-label={`Visit ${project.title} (opens in a new tab)`}
+                  >
+                    <span className="project-card__arrow" aria-hidden="true">
+                      <FiArrowUpRight />
+                    </span>
+                  </a>
+                )}
+                <div className="project-card__surface">
+                  <img
+                    src={project.image}
+                    alt={`${project.title} website screenshot`}
+                    loading="lazy"
+                    decoding="async"
+                    className="project-card__image"
+                  />
+                  <div className="project-card__shade" aria-hidden="true" />
+
+                  <div className="project-card__content">
+                    <h3 className="project-card__title">{project.title}</h3>
+
+                    <div
+                      id={projectDetailsId}
+                      className="project-card__details"
+                      tabIndex={0}
+                      role="region"
+                      aria-label={`${project.title} details`}
+                    >
+                      <p className="project-card__description">{project.description}</p>
+                      <ul className="project-card__technologies" aria-label="Technologies used">
+                        {project.technologies.map((tech) => (
+                          <li key={tech}>{tech}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  className="project-card__details-toggle"
+                  aria-expanded={detailsOpen}
+                  aria-controls={projectDetailsId}
+                  aria-label={`${detailsOpen ? 'Hide' : 'Show'} details for ${project.title}`}
+                  onClick={() => setExpandedProject((previous) => (
+                    previous === project.title ? null : project.title
+                  ))}
+                >
+                  {detailsOpen ? <FiX aria-hidden="true" /> : <FiInfo aria-hidden="true" />}
+                  {detailsOpen ? 'Close' : 'Details'}
+                </button>
+              </div>
+            </motion.article>
+          );
+        })}
+      </div>
+      {PROJECTS.length > 5 && (
+        <div className="projects-footer">
+          <p className="projects-footer__count" role="status">
+            <span>{String(visibleProjects.length).padStart(2, '0')}</span>
+            <span aria-hidden="true"> / </span>
+            {String(PROJECTS.length).padStart(2, '0')} projects
+          </p>
+          <button
+            type="button"
+            onClick={() => {
+              setShowAll((previous) => !previous);
+              setExpandedProject(null);
+            }}
+            aria-expanded={showAll}
+            aria-controls="projects-grid"
+            className="projects-toggle"
+          >
+            <span className="projects-toggle__label">
+              {showAll ? 'Show less' : 'Explore more projects'}
+            </span>
+            {!showAll && (
+              <span className="projects-toggle__badge" aria-hidden="true">
+                +{PROJECTS.length - visibleProjects.length}
+              </span>
+            )}
+            <span className="projects-toggle__icon" aria-hidden="true">
+              <FiChevronDown />
+            </span>
+          </button>
+        </div>
+      )}
+    </section>
+  );
+};
+
+export default Projects;

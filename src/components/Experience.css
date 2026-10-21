@@ -1,0 +1,297 @@
+.experience-section {
+  max-width: 68rem;
+  margin-inline: auto;
+  padding-block: 1rem 2rem;
+}
+
+.experience-header {
+  margin: clamp(3.5rem, 6vw, 5rem) auto 3rem;
+  text-align: center;
+}
+
+.experience-header__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 0 0 1.25rem;
+  color: #a8a29e;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.experience-header__eyebrow::before {
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 50%;
+  background: #d6d3d1;
+  box-shadow: 0 0 0 4px rgb(214 211 209 / 8%);
+  content: '';
+}
+
+.experience-header__title {
+  margin: 0;
+  background: linear-gradient(135deg, #fafaf9 20%, #a8a29e 80%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: clamp(2.4rem, 6.5vw, 5.25rem);
+  font-weight: 650;
+  line-height: 1.05;
+  letter-spacing: -0.065em;
+}
+
+.experience-header__description {
+  max-width: 28rem;
+  margin: 1.15rem auto 0;
+  color: #a8a29e;
+  font-size: clamp(0.825rem, 1.5vw, 0.95rem);
+  line-height: 1.7;
+  text-wrap: balance;
+}
+
+.experience-header__divider {
+  display: block;
+  width: min(16rem, 75%);
+  height: 1px;
+  margin: 1.75rem auto 0;
+  background: linear-gradient(90deg, transparent, #57534e, transparent);
+}
+
+.experience-timeline {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.experience-timeline::before {
+  position: absolute;
+  top: 1.85rem;
+  bottom: 1.85rem;
+  left: 0.5rem;
+  width: 1px;
+  background: linear-gradient(#a8a29e, #44403c 35%, #292524 85%, transparent);
+  content: '';
+}
+
+.experience-item {
+  position: relative;
+  min-width: 0;
+  padding-left: 2rem;
+}
+
+.experience-item + .experience-item {
+  margin-top: 1.5rem;
+}
+
+.experience-item::before {
+  position: absolute;
+  top: 0.45rem;
+  left: 0.2rem;
+  width: 0.65rem;
+  height: 0.65rem;
+  border: 1px solid #78716c;
+  border-radius: 50%;
+  background: #1c1917;
+  box-shadow: 0 0 0 5px #0c0a09;
+  content: '';
+}
+
+.experience-item:first-child::before {
+  border-color: #e7e5e4;
+  background: #d6d3d1;
+  box-shadow: 0 0 0 5px #0c0a09, 0 0 16px rgb(214 211 209 / 20%);
+}
+
+.experience-item__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.85rem;
+}
+
+.experience-item__date {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  color: #a8a29e;
+  font-size: 0.7rem;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.6;
+}
+
+.experience-item__date svg {
+  flex-shrink: 0;
+  color: #78716c;
+}
+
+.experience-item__latest {
+  padding: 0.25rem 0.6rem;
+  border: 1px solid #44403c;
+  border-radius: 999px;
+  background: rgb(214 211 209 / 5%);
+  color: #d6d3d1;
+  font-size: 0.6rem;
+  line-height: 1.4;
+}
+
+.experience-card {
+  position: relative;
+  min-width: 0;
+  padding: clamp(1.1rem, 3vw, 2rem);
+  border: 1px solid rgb(168 162 158 / 18%);
+  border-radius: 1.5rem;
+  background: linear-gradient(135deg, rgb(41 37 36 / 65%), rgb(12 10 9 / 92%));
+  box-shadow: inset 0 1px 0 rgb(250 250 249 / 4%), 0 12px 32px rgb(0 0 0 / 12%);
+  transition: border-color 300ms ease, box-shadow 300ms ease;
+}
+
+.experience-card::before {
+  position: absolute;
+  top: -1px;
+  right: 2rem;
+  left: 2rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgb(214 211 209 / 30%), transparent);
+  content: '';
+}
+
+.experience-card__header {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.experience-card__icon {
+  display: grid;
+  flex-shrink: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+  place-items: center;
+  border: 1px solid rgb(168 162 158 / 20%);
+  border-radius: 0.85rem;
+  background: linear-gradient(145deg, #292524, #1c1917);
+  color: #d6d3d1;
+  font-size: 1.1rem;
+}
+
+.experience-card__identity {
+  min-width: 0;
+}
+
+.experience-card__company {
+  margin: 0 0 0.4rem;
+  color: #a8a29e;
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.experience-card__role {
+  margin: 0;
+  color: #f5f5f4;
+  font-size: clamp(1.05rem, 2vw, 1.5rem);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.035em;
+  overflow-wrap: anywhere;
+}
+
+.experience-card__description {
+  max-width: 70ch;
+  margin: 1.25rem 0 0;
+  color: #a8a29e;
+  font-size: 0.875rem;
+  line-height: 1.85;
+}
+
+.experience-card__stack {
+  margin-top: 1.5rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid rgb(168 162 158 / 12%);
+}
+
+.experience-card__stack-label {
+  margin: 0 0 0.85rem;
+  color: #a8a29e;
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.experience-card__technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.experience-card__technologies li {
+  max-width: 100%;
+  padding: 0.35rem 0.65rem;
+  border: 1px solid rgb(168 162 158 / 16%);
+  border-radius: 999px;
+  background: rgb(214 211 209 / 4%);
+  color: #d6d3d1;
+  font-size: 0.7rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 900px) {
+  .experience-timeline::before {
+    left: 14.5rem;
+  }
+
+  .experience-item {
+    display: grid;
+    grid-template-columns: 13rem minmax(0, 1fr);
+    gap: 3rem;
+    padding-left: 0;
+  }
+
+  .experience-item::before {
+    top: 1.8rem;
+    left: calc(14.5rem - 0.3rem);
+  }
+
+  .experience-item__meta {
+    flex-direction: column;
+    align-items: flex-end;
+    align-self: start;
+    gap: 0.75rem;
+    margin-bottom: 0;
+    padding-top: 1.5rem;
+    text-align: right;
+  }
+
+  .experience-item__date {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 479px) {
+  .experience-card__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .experience-card:hover {
+    border-color: rgb(168 162 158 / 40%);
+    box-shadow: inset 0 1px 0 rgb(250 250 249 / 6%), 0 12px 32px rgb(0 0 0 / 20%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .experience-card {
+    transition: none;
+  }
+}

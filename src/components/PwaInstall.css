@@ -1,0 +1,64 @@
+.pwa-install {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  max-width: 22rem;
+}
+
+.pwa-install__button,
+.pwa-install__installed {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  min-height: 44px;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  border: 1px solid #78716c;
+  border-radius: 999px;
+  background: #1c1917;
+  color: #e7e5e4;
+  font-size: 0.7rem;
+  line-height: 1.7;
+}
+
+.pwa-install__button {
+  cursor: pointer;
+  transition: border-color 200ms ease, background 200ms ease;
+}
+
+.pwa-install__button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.contact-footer__bottom .pwa-install__instructions {
+  max-width: 35ch;
+  margin: 0;
+  color: #d6d3d1;
+  font-size: 0.75rem;
+  line-height: 1.8;
+}
+
+@media (max-width: 767px) {
+  .pwa-install,
+  .pwa-install__button,
+  .pwa-install__installed {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .pwa-install__button:hover:not(:disabled) {
+    border-color: #d6d3d1;
+    background: #292524;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pwa-install__button {
+    transition: none;
+  }
+}

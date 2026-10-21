@@ -1,37 +1,146 @@
-import logo from '../assets/logo.png'
-import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, } from 'react-icons/fa'
+import { useEffect, useId, useRef, useState } from 'react';
+import { motion, useReducedMotion } from 'motion/react';
+import { FiArrowUpRight, FiMenu, FiX } from 'react-icons/fi';
+import logo from '../assets/logo.png';
+import './Navbar.css';
+
+const NAV_LINKS = [
+  { id: 'home', label: 'Home' },
+  { id: 'technologies', label: 'Toolkit' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'contact', label: 'Contact' },
+];
 
 const Navbar = () => {
-  return (
-    <nav className="fixed top-0 left-0 w-full z-50 h-14 bg-transparent backdrop-blur-2xl flex items-center justify-between py-4">
-      <div className="flex items-center justify-between w-full sm:px-10">
-        <a href="/" aria-label="Home">
-          <img src={logo} className="mx-2 sm:mx-4 w-30 sm:w-50" />
-        </a>
-        <div className="flex items-center justify-center m-4 sm:m-8 gap-2 sm:gap-4 text-lg sm:text-2xl">
-          <a
-            href="https://www.linkedin.com/in/ziaulhaq-parsa-karimi-8a6149373?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B9y6oVBtLQKC6xSkF1BvR4g%3D%3D"
-            aria-label="LinkedIn" rel="noreferrer" target="_blank">
-            <FaLinkedin />
-          </a>
-          <a href="https://github.com/Z-Coding-dot" aria-label="GitHub" rel="noreferrer" target="_blank">
-            <FaGithub />
-          </a>
-          <a
-            href="https://www.instagram.com/parsa_____official?utm_source=qr&igsh=MTB1NXE1cTN3YWR1OQ=="
-            aria-label="Instagram" rel='noreferrer' target='_blank'>
-            <FaInstagram />
-          </a>
-          <a
-            href="https://www.facebook.com/share/14aiDgociRq/"
-            aria-label="facebook" rel="noreferrer" target="_blank"
-          >
-            <FaFacebook />
-          </a>
-        </div>
-      </div>
-    </nav>
-  );
-}
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
+  const headerRef = useRef(null);
+  const toggleRef = useRef(null);
+  const navigationId = useId();
+  const menuId = `${navigationId}-mobile-navigation`;
+  const reduceMotion = useReducedMotion();
 
-export default Navbar
+  useEffect(() => {
+    let frame = 0;
+    const updateActiveSection = () => {
+      frame = 0;
+      const activationLine = Math.max(96, window.innerHeight * 0.25);
+      let current = 'home';
+      for (const { id } of NAV_LINKS) {
+        const section = document.getElementById(id);
+        if (section && section.getBoundingClientRect().top <= activationLine) current = id;
+      }
+      if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4) {
+        current = 'contact';
+      }
+      setActiveSection(current);
+    };
+    const scheduleUpdate = () => {
+      if (!frame) frame = window.requestAnimationFrame(updateActiveSection);
+    };
+    updateActiveSection();
+    window.addEventListener('scroll', scheduleUpdate, { passive: true });
+    window.addEventListener('resize', scheduleUpdate);
+    return () => {
+      window.removeEventListener('scroll', scheduleUpdate);
+      window.removeEventListener('resize', scheduleUpdate);
+      window.cancelAnimationFrame(frame);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const closeOnOutsidePress = (event) => {
+      if (!headerRef.current?.contains(event.target)) setMenuOpen(false);
+    };
+    const closeOnEscape = (event) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        setMenuOpen(false);
+        toggleRef.current?.focus({ preventScroll: true });
+      }
+    };
+    const desktop = window.matchMedia('(min-width: 900px)');
+    const closeOnDesktop = (event) => {
+      if (event.matches) setMenuOpen(false);
+    };
+    document.addEventListener('pointerdown', closeOnOutsidePress);
+    document.addEventListener('keydown', closeOnEscape);
+    desktop.addEventListener('change', closeOnDesktop);
+    return () => {
+      document.removeEventListener('pointerdown', closeOnOutsidePress);
+      document.removeEventListener('keydown', closeOnEscape);
+      desktop.removeEventListener('change', closeOnDesktop);
+    };
+  }, [menuOpen]);
+
+  return (
+    <header className="site-header" ref={headerRef}>
+      <nav className="navbar" aria-label="Main navigation">
+        <a href="#home" className="navbar__brand" aria-label="Ziaulhaq Parsa home" onClick={() => setMenuOpen(false)}>
+          <img src={logo} alt="" />
+        </a>
+
+        <ul className="navbar__links">
+          {NAV_LINKS.slice(0, -1).map(({ id, label }) => (
+            <li key={id}>
+              <a href={`#${id}`} className="navbar__link" aria-current={activeSection === id ? 'location' : undefined}>
+                {activeSection === id && (
+                  <motion.span
+                    className="navbar__active-pill"
+                    layoutId={reduceMotion ? undefined : `${navigationId}-active-pill`}
+                    initial={false}
+                    transition={reduceMotion ? { duration: 0 } : { type: 'spring', bounce: 0, duration: 0.35 }}
+                    aria-hidden="true"
+                  />
+                )}
+                {label}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <div className="navbar__actions">
+          <a href="#contact" className="navbar__contact" aria-current={activeSection === 'contact' ? 'location' : undefined} onClick={() => setMenuOpen(false)}>
+            Let's talk <FiArrowUpRight aria-hidden="true" />
+          </a>
+          <button
+            ref={toggleRef}
+            type="button"
+            className="navbar__menu-toggle"
+            aria-label={menuOpen ? 'Close navigation' : 'Open navigation'}
+            aria-expanded={menuOpen}
+            aria-controls={menuId}
+            onClick={() => setMenuOpen((previous) => !previous)}
+          >
+            {menuOpen ? <FiX aria-hidden="true" /> : <FiMenu aria-hidden="true" />}
+          </button>
+        </div>
+      </nav>
+
+      <nav id={menuId} className="navbar-mobile" aria-label="Mobile navigation" hidden={!menuOpen}>
+        <ul>
+          {NAV_LINKS.map(({ id, label }, index) => (
+            <li key={id}>
+              <a
+                href={`#${id}`}
+                aria-current={activeSection === id ? 'location' : undefined}
+                onClick={() => {
+                  setMenuOpen(false);
+                  toggleRef.current?.focus({ preventScroll: true });
+                }}
+              >
+                <span className="navbar-mobile__number" aria-hidden="true">0{index + 1}</span>
+                {label}
+                <FiArrowUpRight aria-hidden="true" />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </header>
+  );
+};
+
+export default Navbar;

@@ -15,6 +15,11 @@ import aveelon from "../assets/projects/aveelon.png";
 import skillBridge from "../assets/projects/skillBridge.png";
 import lumoCasa from "../assets/projects/lumoCasa.png";
 import lunaRosa from "../assets/projects/lunaRosa.png";
+import epart from "../assets/projects/epart.png";
+import afghan from "../assets/projects/afghandevelopers.png";
+import orphan from "../assets/projects/orphan.png";
+import health from "../assets/projects/health.png";
+
 
 export const HERO_CONTENT = `I'm a passionate and detail-oriented recent graduated student from Astana IT University in Computer Science,
  specializing in Frontend Web Development using modern technologies like React.js, Tailwind CSS, TypeScript, and JavaScript (ES6+).
@@ -76,6 +81,38 @@ export const EXPERIENCES = [
 
 export const PROJECTS = [
   {
+    title: "Epart",
+    image: epart,
+    description:
+      "A luxurious-looking website and digital product for serious business. Epart is a digital experience creation team: corporate website, application, and brand identity — fast, right-to-left, and mobile-ready.",
+    technologies: [
+      "TypeScript",
+      "React.js",
+      "Tailwind CSS",
+      "Lucide React",
+      "React Router",
+      "Framer Motion",
+      "Vite",
+    ],
+    link: "https://epart.site/",
+  },
+  {
+    title: "Afghan Developers",
+    image: afghan,
+    description:
+      "Afghan Developers is a professional web development agency and private community of verified Afghan software developers.",
+    technologies: [
+      "TypeScript",
+      "React.js",
+      "Tailwind CSS",
+      "Lucide React",
+      "React Router",
+      "Framer Motion",
+      "Vite",
+    ],
+    link: "https://afghandevelopers.com/",
+  },
+  {
     title: "SkillBridge",
     image: skillBridge,
     description:
@@ -106,6 +143,20 @@ export const PROJECTS = [
       "Vite",
     ],
     link: "https://aveelon.com/",
+  },
+  {
+    title: "Orphan House Institute",
+    image: orphan,
+    description:"HAFEZ . EDUCATION & CARE, Health and well-being for every child Your support helps provide care, nutrition, and well-being",
+    technologies: ["TypeScript", "React.js", "Tailwind CSS", "Lucide React", "React Router", "Framer Motion", "Vite"],
+    link: "https://github.com/Z-Coding-dot/Orphan-institute"
+  },
+  {
+    title: "Health Care | Clinic",
+    image: health,
+    description:"Care that starts with listening. Clear options. A plan for your next visit.",
+    technologies: ["TypeScript", "React.js", "Tailwind CSS", "Lucide React", "React Router", "Framer Motion", "Vite"],
+    link: "https://github.com/Z-Coding-dot/Health_Care_template-frontend-"
   },
   {
     title: "LumoCasa",

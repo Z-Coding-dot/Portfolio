@@ -1,42 +1,70 @@
-import React from 'react'
-import {EXPERIENCES} from '../constants';
-import {motion} from 'motion/react';
-const Experience = () => {
-  return (
-    <div className='p-4'>
-        <h2 className="text-2xl sm:text-3xl md:text-4xl text-center my-20 font-bold">Experience</h2>
-        <div>
-        {EXPERIENCES.map((exp, index) => (
-            <div key={index} className="mb-10 lg:mb-18 flex flex-wrap lg:justify-center gap-4 lg:gap-8">
-                <div className="w-full lg:w-1/4">
-                    <motion.p 
-                    initial={{opacity: 0, x: -200}}
-                    whileInView={{opacity: 1, x: 0}}
-                    transition={{duration: 1, ease: 'easeInOut'}}
-                     className="mb-2 font-semibold text-sm sm:text-base xl:text-lg text-stone-400">{exp.year}</motion.p>
-                </div>
-                <motion.div
-                 initial={{opacity: 0, x: 200}}
-                 whileInView={{opacity: 1, x: 0}}
-                 transition={{duration: 1, ease: 'easeInOut'}}
-                 className="w-full max-w-xl lg:w-3/4">
-                    <h3 className="mb-2 font-semibold text-xl sm:text-2xl text-stone-200">{exp.role} -
-                        <span className='text-stone-400 text-base sm:text-lg'>  {exp.company}</span> </h3>
-                    <p className="text-stone-400 mb-4 text-sm sm:text-base">{exp.description}</p>
-                   
-                    <div className='flex flex-wrap'>
-                    {exp.technologies.map((te, index) =>(
-                    <span key={index} className="text-xs sm:text-base font-medium bg-stone-800
-                     text-stone-300 mr-2 mt-4 py-2 px-4 rounded ">{te}</span>
-                        ))}
-                    </div>
-                </motion.div>
-            </div>
-        ))}
-        </div>
-      
-    </div>
-  )
-}
+import { EXPERIENCES } from '../constants';
+import { motion, useReducedMotion } from 'motion/react';
+import { FiBriefcase, FiCalendar } from 'react-icons/fi';
+import { getScrollReveal } from '../utils/scrollReveal';
+import './Experience.css';
 
-export default Experience
+const Experience = () => {
+  const reduceMotion = useReducedMotion();
+
+  return (
+    <section id="experience" className="experience-section" aria-labelledby="experience-heading">
+      <motion.header
+        className="experience-header"
+        {...getScrollReveal(reduceMotion)}
+      >
+        <p className="experience-header__eyebrow">Professional journey</p>
+        <h2 id="experience-heading" className="experience-header__title">Experience</h2>
+        <p className="experience-header__description">
+          My journey through research and frontend development.
+        </p>
+        <span className="experience-header__divider" aria-hidden="true" />
+      </motion.header>
+
+      <ol className="experience-timeline">
+        {EXPERIENCES.map((experience, index) => (
+          <motion.li
+            key={`${experience.company}-${experience.role}-${experience.year}`}
+            className="experience-item"
+            {...getScrollReveal(reduceMotion)}
+          >
+            <div className="experience-item__meta">
+              <p className="experience-item__date">
+                <FiCalendar aria-hidden="true" />
+                {experience.year}
+              </p>
+              {index === 0 && (
+                <span className="experience-item__latest">Most recent</span>
+              )}
+            </div>
+
+            <article className="experience-card">
+              <header className="experience-card__header">
+                <span className="experience-card__icon" aria-hidden="true">
+                  <FiBriefcase />
+                </span>
+                <div className="experience-card__identity">
+                  <p className="experience-card__company">{experience.company}</p>
+                  <h3 className="experience-card__role">{experience.role}</h3>
+                </div>
+              </header>
+
+              <p className="experience-card__description">{experience.description}</p>
+
+              <div className="experience-card__stack">
+                <p className="experience-card__stack-label">Tools &amp; technologies</p>
+                <ul className="experience-card__technologies" aria-label="Tools and technologies">
+                  {experience.technologies.map((technology) => (
+                    <li key={technology}>{technology}</li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+          </motion.li>
+        ))}
+      </ol>
+    </section>
+  );
+};
+
+export default Experience;
