@@ -4,7 +4,7 @@ import { resolve } from 'node:path';
 import { test } from 'node:test';
 import { runInNewContext } from 'node:vm';
 import { renderServiceWorker } from '../scripts/service-worker.mjs';
-import { createInstallStore, getInstallInstructions } from '../src/pwa/installStore.js';
+import { createInstallStore } from '../src/pwa/installStore.js';
 
 function workerHarness(source, scope, resources) {
   const handlers = new Map();
@@ -187,11 +187,43 @@ test('failed prompts recover and already installed sessions are detected', async
   assert.equal(installedStore.getSnapshot().installed, true);
 });
 
-test('install help covers iPhone, iPad desktop mode, Safari, and insecure pages', () => {
-  assert.match(getInstallInstructions(browserHarness({ userAgent: 'iPhone Safari' })), /Share.*Add to Home Screen/);
-  assert.match(getInstallInstructions(browserHarness({ platform: 'MacIntel', maxTouchPoints: 5 })), /Share/);
-  assert.match(getInstallInstructions(browserHarness({ userAgent: 'Macintosh Safari' })), /Add to Dock/);
-  const browser = browserHarness();
-  browser.isSecureContext = false;
-  assert.match(getInstallInstructions(browser), /HTTPS/);
+test('iPhone and iPad offer manual installation without claiming a native prompt is available', () => {
+  for (const device of [
+    { userAgent: 'iPhone Safari' },
+    { userAgent: 'iPad Safari' },
+    { userAgent: 'iPhone CriOS' },
+    { userAgent: 'Macintosh Safari', platform: 'MacIntel', maxTouchPoints: 5 },
+  ]) {
+    const browser = browserHarness(device);
+    const store = createInstallStore();
+    const cleanup = store.initialize(browser);
+    assert.equal(store.getSnapshot().isAppleMobile, true);
+    assert.equal(store.getSnapshot().canPrompt, false);
+    assert.equal(store.getSnapshot().installed, false);
+    cleanup();
+    assert.equal(store.getSnapshot().isAppleMobile, false);
+  }
+  for (const device of [
+    { userAgent: 'Macintosh Safari', platform: 'MacIntel', maxTouchPoints: 0 },
+    { userAgent: 'Android Chrome', platform: 'Linux', maxTouchPoints: 5 },
+  ]) {
+    const store = createInstallStore();
+    store.initialize(browserHarness(device));
+    assert.equal(store.getSnapshot().isAppleMobile, false);
+  }
+  const launchedFromHomeScreen = browserHarness({ userAgent: 'iPhone Safari' });
+  launchedFromHomeScreen.navigator.standalone = true;
+  const installedStore = createInstallStore();
+  installedStore.initialize(launchedFromHomeScreen);
+  assert.equal(installedStore.getSnapshot().installed, true);
+});
+
+test('Apple devices have separate icons at their expected sizes', async () => {
+  const html = await readFile(new URL('../dist/index.html', import.meta.url), 'utf8');
+  for (const size of [152, 167, 180]) {
+    assert.ok(html.includes(`sizes="${size}x${size}"`));
+    const icon = await readFile(new URL(`../dist/icons/z-apple-touch-${size}.png`, import.meta.url));
+    assert.equal(icon.readUInt32BE(16), size);
+    assert.equal(icon.readUInt32BE(20), size);
+  }
 });

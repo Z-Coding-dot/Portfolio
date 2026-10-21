@@ -33,12 +33,46 @@
   opacity: 0.7;
 }
 
-.contact-footer__bottom .pwa-install__instructions {
-  max-width: 35ch;
-  margin: 0;
+.pwa-install__button:focus-visible {
+  outline: 2px solid #04dafe;
+  outline-offset: 4px;
+}
+
+.pwa-install__instructions {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #44403c;
+  border-radius: 1rem;
+  background: #1c1917;
   color: #d6d3d1;
-  font-size: 0.75rem;
-  line-height: 1.8;
+  font-size: 0.8rem;
+  line-height: 1.7;
+  text-align: left;
+}
+
+.pwa-install__instructions p {
+  margin: 0;
+}
+
+.pwa-install__instructions > p:first-child {
+  color: #fafaf9;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.pwa-install__instructions ol {
+  margin: 0;
+  padding-left: 1.25rem;
+  list-style: decimal;
+}
+
+.pwa-install__instructions li + li {
+  margin-top: 0.4rem;
+}
+
+.pwa-install__instructions svg {
+  display: inline;
+  vertical-align: -0.1em;
 }
 
 @media (max-width: 767px) {

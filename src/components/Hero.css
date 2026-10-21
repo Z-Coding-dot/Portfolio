@@ -280,6 +280,11 @@
 }
 
 @media (max-width: 767px) {
+  .hero-section {
+    width: calc(100vw - 1.5rem);
+    margin-inline: calc(50% - 50vw + 0.75rem);
+  }
+
   .hero-button {
     justify-content: space-between;
     width: 100%;
